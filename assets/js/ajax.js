@@ -31,10 +31,13 @@ var Req = (function() {
   };
 
   Req.prototype.postJSON = function(method, data) {
-
     return query(this.url, method, JSON.stringify({
       "key": data
     }));
+  };
+
+  Req.prototype.getQuery = function(url, method, data) {
+    return query(url, method, data);
   };
 
     return Req;

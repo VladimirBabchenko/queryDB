@@ -45,8 +45,11 @@ app.post("/search", function (req, res) {
 });
 
 app.get("/search", function(req, res) {
-  var key = req.body;
-  res.send(key);
+    var searchStr = req.query.q;
+    console.log(searchStr);
+    var related = searchStr ? findCoincidence(searchStr) : [];
+    searchStr && writeToDB(searchStr);
+    res.send(related);
 });
 
 app.listen(port, function () {
