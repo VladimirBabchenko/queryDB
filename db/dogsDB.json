@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Bobik",
+    "category": 2
+  },
+  {
+    "id": 2,
+    "name": "Pufik",
+    "category": 2
+  },
+  {
+    "id": 3,
+    "name": "Murik",
+    "category": 1
+  },
+  {
+    "id": 4,
+    "name": "Sharik",
+    "category": 1
+  }
+]

@@ -49,7 +49,6 @@ app.get("/search", function(req, res) {
   res.send(key);
 });
 
-
 app.listen(port, function () {
   console.log("Server is running");
 });
