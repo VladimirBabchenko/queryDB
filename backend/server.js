@@ -13,6 +13,13 @@ function findCoincidence(data) {
   })
 }
 
+function writeData () {
+    fs.writeFile("./db/requests.json", JSON.stringify(requestsDB), function(err) {
+        if (err) throw err;
+        console.log("The file has been saved");
+    });
+}
+
 function writeToDB(data) {
   var coincidence = requestsDB.find(function(request) {
     return request.key === data;
@@ -21,10 +28,7 @@ function writeToDB(data) {
   !coincidence && requestsDB.push({
     "key": data
   });
-  fs.writeFile("./db/requests.json", JSON.stringify(requestsDB), function(err) {
-    if (err) throw err;
-    console.log("The file has been saved");
-  });
+  writeData();
 }
 
 app.use("/assets", express.static(__dirname + "/assets"));
@@ -51,6 +55,7 @@ app.get("/search", function(req, res) {
     searchStr && writeToDB(searchStr);
     res.send(related);
 });
+
 
 app.listen(port, function () {
   console.log("Server is running");
