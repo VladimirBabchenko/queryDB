@@ -1,11 +1,18 @@
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].style].css",
+    disable: process.env.NODE_ENV === "development"
+});
+
 var config = require("./main");
 
 module.exports = [
     new HtmlWebpackPlugin({
         template: config.html
     }),
-    new ExtractTextPlugin("styles.css")
+    extractSass,
+    new webpack.NoEmitOnErrorsPlugin()
 ];

@@ -9,7 +9,8 @@ module.exports = merge(webpackConfig, {
 
     output: {
         path: config.dist,
-        filename: "[name].bundle.js"
+        filename: "[name].bundle.js",
+        library: "[name]"
     },
 
     devServer: {
@@ -17,5 +18,9 @@ module.exports = merge(webpackConfig, {
         colors: true,
         hot: true,
         historyApiFallback: true
+    },
+
+    watchOptions: {
+        aggregateTimeout: 100
     }
 })

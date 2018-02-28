@@ -9,7 +9,7 @@ module.exports = {
     },
 
     module: {
-        loaders: loaders
+        rules: loaders.rules
     },
 
     plugins: plugins
